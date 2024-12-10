@@ -19,14 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//用 new 的方式新增資料
-$post=new Post();
-$post->title='testtitle';
-$post->content='testcontent';
-$post->save();
+$posts= Post::all();
 
-//使用 find 方法
-$post = Post::find(1);
-echo '標題:'.$post->title.'<br>';
-echo '內容:'.$post->content.'<br>';
-dd($post);
+foreach($posts as $post){
+    echo '編號:'.$post->id.'<br>';
+    echo '標題:'.$post->title.'<br>';
+    echo '內容:'.$post->content.'<br>';
+    echo '張貼時間:'.$post->created_at.'<br>';
+    echo '--------------------------'.'<br>';
+}
