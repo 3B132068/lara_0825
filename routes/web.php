@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PostController;
+use App\Models\Comment;
 use App\Models\Post;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,10 +63,24 @@ dd($featuredPosts);
 
 $fourthPost  =  Post::find(4); 
 dd($fourthPost);
-*/
 
 $lastPost  =  Post::orderBy('id',  'DESC')->first(); 
 dd($lastPost);
+*/
 
+$post = Post::find(6);
+    echo '標題: '.$post->title.'<br>';
+    echo '內容: '.$post->content.'<br>';
+    echo '--------------------------'.'<br>';
+    $comments = $post->comments;
+    foreach ($comments as $comment){
+        echo '留言: '.$comment->content."<br>";
+        echo '--------------------------'.'<br>';
+    }
 
 });
+
+Route::get('posts',[PostController::class, 'index'])->name('posts.index');
+Route::get('post',[PostController::class, 'show'])->name('posts.show');
+Route::get('contact',[PostController::class, 'contact'])->name('posts.contact');
+Route::get('about',[PostController::class, 'about'])->name('posts.about');
