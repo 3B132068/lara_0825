@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Models\Post;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +18,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//用 new 的方式新增資料
+$post=new Post();
+$post->title='testtitle';
+$post->content='testcontent';
+$post->save();
+
+//使用 find 方法
+$post = Post::find(1);
+echo '標題:'.$post->title.'<br>';
+echo '內容:'.$post->content.'<br>';
+dd($post);
