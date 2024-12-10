@@ -38,3 +38,9 @@ $post->update([
     'title'=>'updated title',
     'content'=>'updated content',
 ]);
+
+
+$post=Post::find(1);
+$post->title='savedtitle';
+$post->content='savedcontent';
+$post->save();
