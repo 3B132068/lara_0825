@@ -53,10 +53,14 @@ $post->delete();
 
 $post=Post::find(3,5,7); 
 $post->delete();
-*/
 
 $allPosts  =  Post::all(); 
 dd($allPosts);
+*/
+
+$featuredPosts  =  Post::where('is_feature',  1)->get(); 
+dd($featuredPosts);
+
 
 
 });
