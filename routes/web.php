@@ -28,3 +28,6 @@ foreach($posts as $post){
     echo '張貼時間:'.$post->created_at.'<br>';
     echo '--------------------------'.'<br>';
 }
+
+$posts=Post::where('id','<',10)->orderBy('id','DESC')->get();
+dd($posts);
