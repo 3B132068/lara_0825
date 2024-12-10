@@ -66,7 +66,6 @@ dd($fourthPost);
 
 $lastPost  =  Post::orderBy('id',  'DESC')->first(); 
 dd($lastPost);
-*/
 
 $post = Post::find(6);
     echo '標題: '.$post->title.'<br>';
@@ -77,6 +76,15 @@ $post = Post::find(6);
         echo '留言: '.$comment->content."<br>";
         echo '--------------------------'.'<br>';
     }
+*/
+    $comment = Comment::find(4);
+    echo $comment->content.'<br>';
+    echo '******************'.'<br>';
+    $post = $comment->post;
+    echo $post->id.'<br>';
+    echo $post->title.'<br>';
+    echo $post->content.'<br>';
+
 
 });
 
