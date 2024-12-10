@@ -17,8 +17,8 @@ use App\Models\Post;
 
 Route::get('/', function () {
     return view('welcome');
-});
 
+/*
 $posts= Post::all();
 
 foreach($posts as $post){
@@ -53,3 +53,10 @@ $post->delete();
 
 $post=Post::find(3,5,7); 
 $post->delete();
+*/
+
+$allPosts  =  Post::all(); 
+dd($allPosts);
+
+
+});
